@@ -1,0 +1,4 @@
+# Material de la guia academica: es documentacion, no codigo fuente.
+# Se excluye de las estadisticas de lenguaje de GitHub.
+DESARROLLO\ DE\ GUIA\ MAKE/** linguist-documentation
+*.html linguist-documentation
