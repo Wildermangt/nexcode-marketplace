@@ -1,0 +1,3 @@
+Captura de la fila registrada automaticamente en Sheets
+
+Guarda aqui la captura.

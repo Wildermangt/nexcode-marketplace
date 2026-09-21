@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Firebase (autenticacion, Firestore y Storage) viaja por la red. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Fotografiar productos. La galeria usa el selector del sistema, que no
+         exige permiso de lectura. -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        android:required="false" />
+
+    <application
+        android:name=".NexcodeMarketplace"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/reglas_extraccion"
+        android:fullBackupContent="@xml/reglas_respaldo"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_nombre"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Nexcode"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Nexcode.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:theme="@style/Theme.Nexcode.Marca"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".ui.principal.PrincipalActivity" />
+
+        <activity android:name=".ui.detalle.DetalleProductoActivity" />
+
+        <activity android:name=".ui.calificacion.CalificacionActivity" />
+
+        <activity
+            android:name=".ui.chat.ChatActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".ui.pedidos.PedidosActivity" />
+
+        <activity android:name=".ui.admin.AdminActivity" />
+
+        <activity
+            android:name=".ui.admin.EditarProductoActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.camara.CamaraActivity"
+            android:theme="@style/Theme.Nexcode.Camara" />
+
+    </application>
+
+</manifest>

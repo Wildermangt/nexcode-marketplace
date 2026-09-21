@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_encabezado"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="18dp">
+
+        <ImageButton
+            android:id="@+id/atras"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fondo_pulsable_circular"
+            android:contentDescription="@string/desc_atras"
+            android:padding="10dp"
+            android:src="@drawable/ic_atras"
+            app:tint="@color/nex_texto_sobre_marca" />
+
+        <TextView
+            android:id="@+id/inicial"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/circulo_blanco_suave"
+            android:gravity="center"
+            android:textColor="@color/nex_texto_sobre_marca"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="JG" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                tools:text="Jeferson Gonzalez" />
+
+            <TextView
+                android:id="@+id/subtitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.85"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="12sp"
+                tools:text="Comprador" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listaMensajes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingVertical="12dp" />
+
+    <include
+        android:id="@+id/vacio"
+        layout="@layout/vista_vacia" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/nex_superficie"
+        android:elevation="10dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campoMensaje"
+            style="@style/Campo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/escribe_mensaje">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/entradaMensaje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLines="4" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/enviar"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/boton_degradado"
+            android:contentDescription="@string/escribe_mensaje"
+            android:padding="14dp"
+            android:src="@drawable/ic_enviar"
+            app:tint="@color/nex_texto_sobre_marca" />
+    </LinearLayout>
+
+</LinearLayout>

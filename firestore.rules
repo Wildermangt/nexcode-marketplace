@@ -1,0 +1,79 @@
+rules_version = '2';
+
+// ---------------------------------------------------------------------------
+//  NEXCODE Marketplace - reglas de Cloud Firestore
+//
+//  Regla general: cualquier persona con sesion iniciada puede mirar la tienda;
+//  solo las cuentas de tipo "administrador" pueden tocar el catalogo. Las
+//  excepciones estan comentadas una por una, porque son las que permiten que
+//  un comprador califique o compre sin darle permiso sobre todo el producto.
+// ---------------------------------------------------------------------------
+
+service cloud.firestore {
+  match /databases/{base}/documents {
+
+    function autenticado() {
+      return request.auth != null;
+    }
+
+    function esAdministrador() {
+      return autenticado() &&
+        get(/databases/$(base)/documents/usuarios/$(request.auth.uid))
+          .data.tipoUsuario == 'administrador';
+    }
+
+    // Solo se cambian estas claves y ninguna mas.
+    function soloCambia(claves) {
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly(claves);
+    }
+
+    // --- Usuarios: cada quien administra su propia ficha ---
+    match /usuarios/{uid} {
+      allow read: if autenticado();
+      allow create, update: if autenticado() && request.auth.uid == uid;
+      allow delete: if false;
+    }
+
+    // --- Productos ---
+    match /productos/{producto} {
+      allow read: if autenticado();
+      allow create, delete: if esAdministrador();
+
+      // El vendedor edita la ficha completa. El comprador solo puede tocar las
+      // cifras que su propia compra o su calificacion modifican.
+      allow update: if esAdministrador()
+        || (autenticado() && soloCambia(['cantidad', 'vendidos']))
+        || (autenticado() && soloCambia(['calificacion', 'votos']));
+
+      // --- Calificaciones: una por persona, con su UID como identificador ---
+      match /calificaciones/{uid} {
+        allow read: if autenticado();
+        allow write: if autenticado() && request.auth.uid == uid;
+      }
+    }
+
+    // --- Pedidos: el comprador crea el suyo y solo ve los suyos ---
+    match /pedidos/{pedido} {
+      allow create: if autenticado()
+        && request.resource.data.compradorId == request.auth.uid;
+      allow read: if esAdministrador()
+        || (autenticado() && resource.data.compradorId == request.auth.uid);
+      allow update: if esAdministrador();
+      allow delete: if false;
+    }
+
+    // --- Chats: el identificador de la conversacion es el UID del comprador ---
+    match /chats/{comprador} {
+      allow read, write: if esAdministrador()
+        || (autenticado() && request.auth.uid == comprador);
+
+      match /mensajes/{mensaje} {
+        allow read: if esAdministrador()
+          || (autenticado() && request.auth.uid == comprador);
+        allow create: if autenticado()
+          && request.resource.data.autorId == request.auth.uid;
+        allow update, delete: if false;
+      }
+    }
+  }
+}

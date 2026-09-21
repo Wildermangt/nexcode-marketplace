@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Sacudida horizontal para senalar un error de validacion -->
+<translate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXDelta="0"
+    android:toXDelta="9"
+    android:duration="70"
+    android:repeatCount="5"
+    android:repeatMode="reverse"
+    android:interpolator="@android:anim/linear_interpolator" />

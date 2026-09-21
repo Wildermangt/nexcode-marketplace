@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_encabezado"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="20dp">
+
+        <ImageButton
+            android:id="@+id/atras"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fondo_pulsable_circular"
+            android:contentDescription="@string/desc_atras"
+            android:padding="10dp"
+            android:src="@drawable/ic_atras"
+            app:tint="@color/nex_texto_sobre_marca" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="@string/calificacion_titulo"
+            android:textColor="@color/nex_texto_sobre_marca"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margen_pantalla"
+            android:paddingBottom="28dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/tarjeta"
+                style="@style/Tarjeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="22dp">
+
+                    <TextView
+                        android:id="@+id/nombreProducto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/nex_texto"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:text="Monitor Dell P2422H 23,8 pulgadas IPS" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center"
+                        android:text="@string/calificacion_detalle"
+                        android:textColor="@color/nex_texto_suave"
+                        android:textSize="13sp" />
+
+                    <com.nexcode.marketplace.ui.comun.BarraEstrellas
+                        android:id="@+id/estrellas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:editable="true"
+                        app:ladoEstrella="42dp"
+                        app:separacionEstrella="8dp" />
+
+                    <TextView
+                        android:id="@+id/etiquetaNota"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/nex_azul"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="Muy bueno" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/campoComentario"
+                        style="@style/Campo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:hint="@string/comentario">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/entradaComentario"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="top|start"
+                            android:inputType="textMultiLine|textCapSentences"
+                            android:minLines="3" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/enviar"
+                        style="@style/Boton.Principal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:text="@string/enviar_calificacion" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/Texto.TituloSeccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/opiniones" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listaOpiniones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+            <include
+                android:id="@+id/vacio"
+                layout="@layout/vista_vacia" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

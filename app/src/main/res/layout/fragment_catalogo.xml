@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo"
+    android:orientation="vertical">
+
+    <!-- Encabezado con buscador -->
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_encabezado"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/margen_pantalla"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/titulo"
+            style="@style/Texto.TituloPantalla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_catalogo"
+            android:textColor="@color/nex_texto_sobre_marca" />
+
+        <TextView
+            android:id="@+id/conteo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:alpha="0.85"
+            android:textColor="@color/nex_texto_sobre_marca"
+            android:textSize="13sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campoBuscar"
+            style="@style/Campo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:hint="@string/buscar_producto"
+            app:boxBackgroundColor="@color/nex_superficie"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:endIconMode="clear_text"
+            app:startIconDrawable="@drawable/ic_buscar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/entradaBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <!-- Filtro por categoria -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="12dp"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/grupoCategorias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/margen_pantalla"
+            app:singleLine="true"
+            app:singleSelection="true" />
+    </HorizontalScrollView>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refrescar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/lista"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingHorizontal="10dp"
+                    android:paddingBottom="16dp" />
+
+                <include
+                    android:id="@+id/vacio"
+                    layout="@layout/vista_vacia" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

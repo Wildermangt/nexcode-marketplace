@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical"
+        android:paddingBottom="24dp">
+
+        <!-- Encabezado de marca -->
+        <LinearLayout
+            android:id="@+id/encabezado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_encabezado"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margen_pantalla"
+            android:paddingTop="20dp"
+            android:paddingBottom="34dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/saludo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.85"
+                        android:textColor="@color/nex_texto_sobre_marca"
+                        android:textSize="13sp"
+                        tools:text="Hola, Jeferson" />
+
+                    <TextView
+                        android:id="@+id/tituloMarca"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:letterSpacing="0.04"
+                        android:text="@string/app_nombre"
+                        android:textColor="@color/nex_texto_sobre_marca"
+                        android:textSize="21sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/simbolo"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:contentDescription="@string/desc_logo"
+                    android:src="@drawable/simbolo_nexcode" />
+            </LinearLayout>
+
+            <!-- Buscador: al tocarlo se abre el catalogo -->
+            <LinearLayout
+                android:id="@+id/buscador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fondo_pastilla_blanca"
+                android:gravity="center_vertical"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="14dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@string/desc_buscar"
+                    android:src="@drawable/ic_buscar"
+                    app:tint="@color/nex_texto_suave" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/buscar_producto"
+                    android:textColor="@color/nex_texto_suave"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Acceso del vendedor -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tarjetaPanel"
+            style="@style/Tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="-20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/circulo_azul_suave"
+                    android:contentDescription="@null"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_vender"
+                    app:tint="@color/nex_azul" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/panel_vendedor"
+                        android:textColor="@color/nex_texto"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/resumenPanel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textColor="@color/nex_texto_suave"
+                        android:textSize="12sp"
+                        tools:text="20 productos publicados" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_derecha"
+                    app:tint="@color/nex_texto_suave" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Categorias -->
+        <TextView
+            android:id="@+id/tituloCategorias"
+            style="@style/Texto.TituloSeccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="24dp"
+            android:text="@string/campo_categoria" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:clipToPadding="false"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/grupoCategorias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/margen_pantalla"
+                app:singleLine="true" />
+        </HorizontalScrollView>
+
+        <!-- Mas vendidos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="26dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/Texto.TituloSeccion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/destacados" />
+
+            <TextView
+                android:id="@+id/verTodoDestacados"
+                style="@style/Texto.Etiqueta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="@string/ver_todo"
+                android:textColor="@color/nex_azul" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaDestacados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <!-- Recien llegados -->
+        <TextView
+            style="@style/Texto.TituloSeccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="26dp"
+            android:text="@string/novedades" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaNovedades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:paddingHorizontal="10dp" />
+
+        <include
+            android:id="@+id/vacio"
+            layout="@layout/vista_vacia" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

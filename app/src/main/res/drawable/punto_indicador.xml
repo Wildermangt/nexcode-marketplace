@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Punto inactivo del carrusel. Se dibuja como un círculo pequeño centrado
+     dentro del mismo ancho que ocupa el indicador activo: así el cambio de
+     página solo repinta el fondo y nunca obliga a medir de nuevo la fila.
+-->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetLeft="6.5dp"
+    android:insetRight="6.5dp">
+    <shape android:shape="oval">
+        <solid android:color="#FFC3CFDE" />
+    </shape>
+</inset>

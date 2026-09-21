@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="start"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/margen_pantalla"
+    android:paddingVertical="5dp">
+
+    <TextView
+        android:id="@+id/autor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginBottom="3dp"
+        android:textColor="@color/nex_azul"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        tools:text="NEXCODE Distribuciones" />
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_burbuja_agente"
+        android:maxWidth="280dp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="10dp"
+        android:textColor="@color/nex_texto"
+        android:textSize="14sp"
+        tools:text="Claro que si, tenemos 24 unidades disponibles." />
+
+    <TextView
+        android:id="@+id/hora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/nex_texto_suave"
+        android:textSize="11sp"
+        tools:text="7:45 p. m." />
+
+</LinearLayout>

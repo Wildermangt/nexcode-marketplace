@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_nombre">NEXCODE Marketplace</string>
+    <string name="marca">NEXCODE</string>
+    <string name="marca_secundaria">MARKETPLACE</string>
+    <string name="lema">Tecnologia mayorista al alcance de tu equipo</string>
+
+    <!-- Acceso -->
+    <string name="entrar">Ingresar</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="nombre_completo">Nombre completo</string>
+    <string name="correo">Correo electronico</string>
+    <string name="contrasena">Contrasena</string>
+    <string name="confirmar_contrasena">Confirmar contrasena</string>
+    <string name="soy_vendedor">Quiero vender: crear cuenta de administrador</string>
+    <string name="bienvenido">Hola de nuevo</string>
+    <string name="bienvenido_detalle">Ingresa para seguir comprando</string>
+    <string name="registro_detalle">Crea tu cuenta en menos de un minuto</string>
+    <string name="salir_sesion">Cerrar sesion</string>
+
+    <!-- Navegacion -->
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_catalogo">Catalogo</string>
+    <string name="nav_carrito">Carrito</string>
+    <string name="nav_chat">Chat</string>
+    <string name="nav_perfil">Perfil</string>
+
+    <!-- Catalogo -->
+    <string name="buscar_producto">Buscar producto, marca o referencia</string>
+    <string name="todas_categorias">Todas</string>
+    <string name="destacados">Mas vendidos</string>
+    <string name="novedades">Recien llegados</string>
+    <string name="ver_todo">Ver todo</string>
+    <string name="sin_resultados">No encontramos productos con ese criterio</string>
+    <string name="catalogo_vacio">El catalogo aun no tiene productos</string>
+    <string name="productos_encontrados">%1$d productos</string>
+
+    <!-- Producto -->
+    <string name="agregar_carrito">Agregar al carrito</string>
+    <string name="agregado_carrito">Agregado al carrito</string>
+    <string name="sin_existencias">Sin existencias</string>
+    <string name="disponibles">%1$d disponibles</string>
+    <string name="estado_nuevo">Nuevo</string>
+    <string name="estado_usado">Usado</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="vendido_por">Vendido por</string>
+    <string name="opiniones">Opiniones</string>
+    <string name="calificar">Calificar</string>
+    <string name="escribir_vendedor">Escribir al vendedor</string>
+    <string name="referencia">Referencia</string>
+
+    <!-- Carrito -->
+    <string name="carrito_vacio">Tu carrito esta vacio</string>
+    <string name="carrito_vacio_detalle">Explora el catalogo y agrega los equipos que necesitas</string>
+    <string name="ir_catalogo">Ir al catalogo</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="envio">Envio</string>
+    <string name="envio_gratis">Gratis</string>
+    <string name="total">Total</string>
+    <string name="finalizar_compra">Finalizar compra</string>
+    <string name="compra_realizada">Compra registrada</string>
+    <string name="compra_detalle">Tu pedido %1$s quedo registrado. El vendedor te escribira por el chat.</string>
+    <string name="vaciar_carrito">Vaciar carrito</string>
+
+    <!-- Calificacion -->
+    <string name="calificacion_titulo">Califica este producto</string>
+    <string name="calificacion_detalle">Tu opinion ayuda a otros compradores</string>
+    <string name="comentario">Comentario (opcional)</string>
+    <string name="enviar_calificacion">Enviar calificacion</string>
+    <string name="gracias_calificacion">Gracias por calificar</string>
+    <string name="sin_opiniones">Aun no hay opiniones de este producto</string>
+    <string name="promedio_de">%1$s de 5</string>
+
+    <!-- Chat -->
+    <string name="chat_titulo">Chat con el vendedor</string>
+    <string name="chat_admin_titulo">Conversaciones</string>
+    <string name="escribe_mensaje">Escribe un mensaje</string>
+    <string name="sin_chats">Todavia no hay conversaciones</string>
+    <string name="chat_vacio">Escribe tu primer mensaje al vendedor</string>
+
+    <!-- Perfil -->
+    <string name="mis_pedidos">Mis pedidos</string>
+    <string name="sin_pedidos">Aun no has hecho pedidos</string>
+    <string name="panel_vendedor">Panel del vendedor</string>
+    <string name="tipo_comprador">Comprador</string>
+    <string name="tipo_administrador">Administrador / Vendedor</string>
+    <string name="miembro_desde">Miembro desde %1$s</string>
+
+    <!-- Administracion -->
+    <string name="admin_titulo">Panel del vendedor</string>
+    <string name="nuevo_producto">Nuevo producto</string>
+    <string name="editar_producto">Editar producto</string>
+    <string name="eliminar_producto">Eliminar producto</string>
+    <string name="eliminar_pregunta">Se eliminara \"%1$s\" del catalogo. Esta accion no se puede deshacer.</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="guardar">Guardar producto</string>
+    <string name="producto_guardado">Producto guardado</string>
+    <string name="producto_eliminado">Producto eliminado</string>
+    <string name="sembrar_catalogo">Cargar catalogo mayorista (20 referencias)</string>
+    <string name="sembrando">Cargando catalogo y subiendo fotografias...</string>
+    <string name="catalogo_sembrado">Catalogo cargado: %1$d productos</string>
+    <string name="migrar_fotos">Subir las fotografias a Firebase Storage</string>
+    <string name="migrar_fotos_detalle">%1$d fotografias se estan sirviendo desde la aplicacion</string>
+    <string name="fotos_migradas">%1$d fotografias subidas a Storage</string>
+    <string name="total_productos">Productos</string>
+    <string name="total_unidades">Unidades</string>
+    <string name="valor_inventario">Inventario</string>
+
+    <!-- Formulario de producto -->
+    <string name="campo_nombre">Nombre del producto</string>
+    <string name="campo_descripcion">Descripcion</string>
+    <string name="campo_precio">Precio de venta</string>
+    <string name="campo_categoria">Categoria</string>
+    <string name="campo_marca">Marca</string>
+    <string name="campo_cantidad">Cantidad disponible</string>
+    <string name="campo_estado">Estado</string>
+    <string name="fotografia">Fotografia del producto</string>
+    <string name="tomar_foto">Tomar foto</string>
+    <string name="elegir_galeria">Elegir de la galeria</string>
+    <string name="cambiar_foto">Cambiar fotografia</string>
+    <string name="foto_requerida">Agrega una fotografia del producto</string>
+
+    <!-- Camara -->
+    <string name="capturar">Capturar</string>
+    <string name="permiso_camara">Se necesita permiso de camara para fotografiar el producto</string>
+    <string name="cambiar_camara">Cambiar camara</string>
+    <string name="error_camara">No se pudo abrir la camara</string>
+
+    <!-- Validaciones y avisos -->
+    <string name="campo_obligatorio">Este campo es obligatorio</string>
+    <string name="correo_invalido">Escribe un correo valido</string>
+    <string name="contrasena_corta">La contrasena debe tener al menos 6 caracteres</string>
+    <string name="contrasenas_distintas">Las contrasenas no coinciden</string>
+    <string name="numero_invalido">Escribe un numero valido</string>
+    <string name="sin_conexion">Sin conexion: mostrando los datos guardados en el equipo</string>
+    <string name="error_generico">Algo salio mal. Intenta de nuevo.</string>
+
+    <!-- Descripciones para accesibilidad -->
+    <string name="desc_atras">Volver</string>
+    <string name="desc_imagen_producto">Fotografia del producto</string>
+    <string name="desc_logo">Logotipo de NEXCODE</string>
+    <string name="desc_buscar">Buscar</string>
+    <string name="desc_carrito">Carrito de compras</string>
+</resources>

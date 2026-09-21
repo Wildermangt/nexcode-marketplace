@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_encabezado"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/margen_pantalla"
+        android:paddingTop="20dp"
+        android:paddingBottom="22dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circulo_blanco_suave"
+            android:contentDescription="@null"
+            android:padding="9dp"
+            android:src="@drawable/ic_tienda"
+            app:tint="@color/nex_texto_sobre_marca" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_titulo"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/subtitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.85"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="12sp"
+                tools:text="NEXCODE Distribuciones" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Vista del comprador: la conversacion con la tienda -->
+    <LinearLayout
+        android:id="@+id/grupoConversacion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaMensajes"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingVertical="12dp" />
+
+        <include
+            android:id="@+id/vacioConversacion"
+            layout="@layout/vista_vacia" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/nex_superficie"
+            android:elevation="10dp"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/campoMensaje"
+                style="@style/Campo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/escribe_mensaje">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/entradaMensaje"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:maxLines="4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/enviar"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/boton_degradado"
+                android:contentDescription="@string/escribe_mensaje"
+                android:padding="14dp"
+                android:src="@drawable/ic_enviar"
+                app:tint="@color/nex_texto_sobre_marca" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Vista del vendedor: la bandeja de conversaciones -->
+    <FrameLayout
+        android:id="@+id/grupoBandeja"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listaConversaciones"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="16dp" />
+
+        <include
+            android:id="@+id/vacioBandeja"
+            layout="@layout/vista_vacia" />
+    </FrameLayout>
+
+</LinearLayout>

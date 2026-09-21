@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/fondo_redondeado_claro"
+    android:orientation="vertical"
+    android:padding="14dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/inicial"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/circulo_marca"
+            android:gravity="center"
+            android:textColor="@color/nex_texto_sobre_marca"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="JG" />
+
+        <TextView
+            android:id="@+id/autor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/nex_texto"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:text="Jeferson Gonzalez" />
+
+        <com.nexcode.marketplace.ui.comun.BarraEstrellas
+            android:id="@+id/estrellas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:ladoEstrella="13dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/comentario"
+        style="@style/Texto.Cuerpo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="13sp"
+        tools:text="Excelente equipo, llego bien empacado." />
+
+    <TextView
+        android:id="@+id/fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/nex_texto_suave"
+        android:textSize="11sp"
+        tools:text="9 sept 2026" />
+
+</LinearLayout>

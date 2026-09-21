@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Tarjeta"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margen_pantalla"
+    android:layout_marginBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:background="@drawable/fondo_redondeado_claro"
+            android:contentDescription="@string/desc_imagen_producto"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/ic_imagen" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/nex_texto"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="Monitor Dell P2422H 23,8 pulgadas IPS" />
+
+            <TextView
+                android:id="@+id/precio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/nex_texto_medio"
+                android:textSize="12sp"
+                tools:text="$ 806.000 c/u" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/menos"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/fondo_pulsable_circular"
+                    android:contentDescription="@string/eliminar"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_menos"
+                    app:tint="@color/nex_azul" />
+
+                <TextView
+                    android:id="@+id/cantidad"
+                    android:layout_width="34dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/nex_texto"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="2" />
+
+                <ImageButton
+                    android:id="@+id/mas"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/fondo_pulsable_circular"
+                    android:contentDescription="@string/agregar_carrito"
+                    android:padding="6dp"
+                    android:src="@drawable/ic_mas"
+                    app:tint="@color/nex_azul" />
+
+                <TextView
+                    android:id="@+id/subtotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:textColor="@color/nex_azul_profundo"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="$ 1.612.000" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/quitar"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/fondo_pulsable_circular"
+            android:contentDescription="@string/eliminar"
+            android:padding="8dp"
+            android:src="@drawable/ic_borrar"
+            app:tint="@color/nex_rojo" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

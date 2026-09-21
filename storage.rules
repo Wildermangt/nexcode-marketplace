@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// ---------------------------------------------------------------------------
+//  NEXCODE Marketplace - reglas de Firebase Storage
+//
+//  Aqui solo viven las fotografias de los productos. Se leen sin restriccion
+//  porque las URL de descarga se guardan dentro de cada documento del catalogo
+//  y las carga el visor de imagenes; escribir exige sesion iniciada.
+// ---------------------------------------------------------------------------
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    match /productos/{archivo} {
+      allow read: if true;
+      // Hasta 5 MB y solo imagenes: la aplicacion ya las comprime antes de subir.
+      allow write: if request.auth != null
+        && request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    match /{rutas=**} {
+      allow read, write: if false;
+    }
+  }
+}

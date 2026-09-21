@@ -1,0 +1,100 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.googleService)
+}
+
+android {
+    namespace = 'com.nexcode.marketplace'
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.nexcode.marketplace"
+        minSdk = 24
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    // Firma de la version de publicacion. El almacen de claves acompana al
+    // proyecto para que la APK pueda reconstruirse sin pasos adicionales.
+    signingConfigs {
+        release {
+            storeFile = file('../nexcode-marketplace.jks')
+            storePassword = 'Nexcode2026'
+            keyAlias = 'nexcode'
+            keyPassword = 'Nexcode2026'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            signingConfig = signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+        debug {
+            // Sin sufijo en el identificador: google-services.json registra un
+            // unico paquete, com.nexcode.marketplace, y con sufijo el
+            // complemento de Google no encontraria su cliente.
+            versionNameSuffix = "-debug"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    packaging {
+        resources {
+            excludes += ['META-INF/{AL2.0,LGPL2.1}']
+        }
+    }
+}
+
+dependencies {
+    // --- Presentacion ---
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.androidx.constraintlayout
+    implementation libs.androidx.recyclerview
+    implementation libs.androidx.viewpager2
+    implementation libs.androidx.swiperefresh
+    implementation libs.androidx.fragment
+    implementation libs.androidx.activity
+
+    // --- Camara del dispositivo y carga de imagenes ---
+    implementation libs.androidx.camera.core
+    implementation libs.androidx.camera.camera2
+    implementation libs.androidx.camera.lifecycle
+    implementation libs.androidx.camera.view
+    implementation libs.androidx.exifinterface
+    implementation libs.glide
+    implementation libs.guava
+
+    // --- Firebase: autenticacion, base de datos y almacenamiento ---
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.auth
+    implementation libs.firebase.firestore
+    implementation libs.firebase.storage
+    implementation libs.kotlinx.coroutines.android
+    implementation libs.kotlinx.coroutines.play.services
+
+    // --- Pruebas ---
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+}

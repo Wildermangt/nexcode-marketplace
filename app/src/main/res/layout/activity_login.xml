@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Encabezado con el degradado de marca -->
+        <LinearLayout
+            android:id="@+id/encabezado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_encabezado"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margen_pantalla"
+            android:paddingTop="46dp"
+            android:paddingBottom="42dp">
+
+            <ImageView
+                android:id="@+id/simbolo"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:contentDescription="@string/desc_logo"
+                android:src="@drawable/simbolo_nexcode" />
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:letterSpacing="0.02"
+                android:text="@string/bienvenido"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/subtitulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:alpha="0.9"
+                android:text="@string/bienvenido_detalle"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Formulario -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tarjeta"
+            style="@style/Tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="-26dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="22dp">
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/grupoModo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:checkedButton="@id/modoEntrar"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/modoEntrar"
+                        style="@style/Segmento"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/entrar" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/modoRegistrar"
+                        style="@style/Segmento"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/crear_cuenta" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/campoNombre"
+                    style="@style/Campo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:hint="@string/nombre_completo"
+                    android:visibility="gone"
+                    app:startIconDrawable="@drawable/ic_usuario">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/entradaNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName|textCapWords"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/campoCorreo"
+                    style="@style/Campo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="@string/correo"
+                    app:startIconDrawable="@drawable/ic_correo">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/entradaCorreo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/campoContrasena"
+                    style="@style/Campo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="@string/contrasena"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_candado">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/entradaContrasena"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/campoConfirmar"
+                    style="@style/Campo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:hint="@string/confirmar_contrasena"
+                    android:visibility="gone"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_candado">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/entradaConfirmar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/interruptorVendedor"
+                    style="@style/Interruptor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:paddingVertical="6dp"
+                    android:text="@string/soy_vendedor"
+                    android:textColor="@color/nex_texto_medio"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/botonPrincipal"
+                    style="@style/Boton.Principal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:text="@string/entrar" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/progreso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/nex_azul"
+                    app:indicatorSize="30dp"
+                    app:trackThickness="3dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/pie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:text="@string/lema"
+            android:textColor="@color/nex_texto_suave"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/desplazable"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/barraCompra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imagen"
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:background="@color/nex_superficie"
+                android:contentDescription="@string/desc_imagen_producto"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/ic_imagen" />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-24dp"
+                app:cardCornerRadius="28dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margen_pantalla">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/marca"
+                            style="@style/Texto.Etiqueta"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/nex_azul"
+                            tools:text="DELL" />
+
+                        <TextView
+                            android:id="@+id/estado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fondo_pastilla_verde"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="5dp"
+                            android:textColor="@color/nex_verde_oscuro"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            tools:text="NUEVO" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/nombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="@color/nex_texto"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="Monitor Dell P2422H 23,8 pulgadas IPS" />
+
+                    <LinearLayout
+                        android:id="@+id/filaCalificacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/fondo_pulsable"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="6dp"
+                        android:paddingVertical="4dp">
+
+                        <com.nexcode.marketplace.ui.comun.BarraEstrellas
+                            android:id="@+id/estrellas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:ladoEstrella="16dp" />
+
+                        <TextView
+                            android:id="@+id/promedio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:textColor="@color/nex_texto_medio"
+                            android:textSize="13sp"
+                            tools:text="4,7 de 5 (12 opiniones)" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="16dp"
+                        android:background="@color/nex_borde" />
+
+                    <!-- Ficha tecnica -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Texto.Etiqueta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/campo_categoria" />
+
+                            <TextView
+                                android:id="@+id/categoria"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/nex_texto"
+                                android:textSize="14sp"
+                                tools:text="Monitores" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Texto.Etiqueta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/referencia" />
+
+                            <TextView
+                                android:id="@+id/referencia"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textColor="@color/nex_texto"
+                                android:textSize="14sp"
+                                tools:text="DEL-P2422H" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/Texto.TituloSeccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/descripcion" />
+
+                    <TextView
+                        android:id="@+id/descripcion"
+                        style="@style/Texto.Cuerpo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        tools:text="Monitor profesional IPS Full HD..." />
+
+                    <!-- Vendedor -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/fondo_redondeado_claro"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="14dp">
+
+                        <ImageView
+                            android:layout_width="38dp"
+                            android:layout_height="38dp"
+                            android:background="@drawable/circulo_azul_suave"
+                            android:contentDescription="@null"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_tienda"
+                            app:tint="@color/nex_azul" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/Texto.Etiqueta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/vendido_por" />
+
+                            <TextView
+                                android:id="@+id/vendedor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/nex_texto"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                tools:text="NEXCODE Distribuciones" />
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/escribir"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/fondo_pulsable_circular"
+                            android:contentDescription="@string/escribir_vendedor"
+                            android:padding="9dp"
+                            android:src="@drawable/ic_chat"
+                            app:tint="@color/nex_azul" />
+                    </LinearLayout>
+
+                    <!-- Opiniones -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            style="@style/Texto.TituloSeccion"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/opiniones" />
+
+                        <TextView
+                            android:id="@+id/calificarEnlace"
+                            style="@style/Texto.Etiqueta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/fondo_pulsable"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="6dp"
+                            android:text="@string/calificar"
+                            android:textColor="@color/nex_azul" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/listaOpiniones"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:nestedScrollingEnabled="false" />
+
+                    <TextView
+                        android:id="@+id/sinOpiniones"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/sin_opiniones"
+                        android:textColor="@color/nex_texto_suave"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Boton de volver flotando sobre la fotografia -->
+    <ImageButton
+        android:id="@+id/atras"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_margin="14dp"
+        android:background="@drawable/circulo_blanco_suave"
+        android:contentDescription="@string/desc_atras"
+        android:padding="10dp"
+        android:src="@drawable/ic_atras"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/nex_texto" />
+
+    <!-- Barra inferior de compra -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/barraCompra"
+        style="@style/Tarjeta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="26dp"
+        app:cardElevation="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/precio"
+                    style="@style/Texto.Cifra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/nex_azul_profundo"
+                    tools:text="$ 806.000" />
+
+                <TextView
+                    android:id="@+id/existencias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/nex_texto_suave"
+                    android:textSize="12sp"
+                    tools:text="24 disponibles" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/agregar"
+                style="@style/Boton.Principal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="26dp"
+                android:text="@string/agregar_carrito" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

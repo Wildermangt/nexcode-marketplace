@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/vistaPrevia"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Barra superior -->
+    <LinearLayout
+        android:id="@+id/barraSuperior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageButton
+            android:id="@+id/cerrar"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/circulo_blanco_suave"
+            android:contentDescription="@string/cancelar"
+            android:padding="11dp"
+            android:src="@drawable/ic_cerrar"
+            app:tint="@color/nex_texto_sobre_marca" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:text="@string/fotografia"
+            android:textColor="@color/nex_texto_sobre_marca"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/cambiar"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/circulo_blanco_suave"
+            android:contentDescription="@string/cambiar_camara"
+            android:padding="11dp"
+            android:src="@drawable/ic_cambiar"
+            app:tint="@color/nex_texto_sobre_marca" />
+    </LinearLayout>
+
+    <!-- Disparador -->
+    <LinearLayout
+        android:id="@+id/barraInferior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="42dp">
+
+        <TextView
+            android:id="@+id/ayuda"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:alpha="0.8"
+            android:text="@string/capturar"
+            android:textColor="@color/nex_texto_sobre_marca"
+            android:textSize="13sp" />
+
+        <ImageButton
+            android:id="@+id/capturar"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:background="@drawable/circulo_azul_lleno"
+            android:contentDescription="@string/capturar"
+            android:padding="22dp"
+            android:src="@drawable/ic_camara"
+            app:tint="@color/nex_texto_sobre_marca" />
+    </LinearLayout>
+
+    <!-- Aviso cuando no hay permiso de camara -->
+    <LinearLayout
+        android:id="@+id/sinPermiso"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingHorizontal="40dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_camara"
+            app:tint="@color/nex_texto_sobre_marca" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:text="@string/permiso_camara"
+            android:textColor="@color/nex_texto_sobre_marca"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/pedirPermiso"
+            style="@style/Boton.Principal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:paddingHorizontal="28dp"
+            android:text="@string/tomar_foto" />
+    </LinearLayout>
+
+</FrameLayout>

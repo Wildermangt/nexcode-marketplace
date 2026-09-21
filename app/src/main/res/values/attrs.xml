@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Atributos de la fila de cinco estrellas (com.nexcode.marketplace.ui.comun.BarraEstrellas) -->
+    <declare-styleable name="BarraEstrellas">
+        <!-- Lado de cada estrella. Por defecto 16 dp. -->
+        <attr name="ladoEstrella" format="dimension" />
+        <!-- Separacion entre estrellas. Por defecto 2 dp. -->
+        <attr name="separacionEstrella" format="dimension" />
+        <!-- Cuando es cierto, la barra responde al toque para calificar. -->
+        <attr name="editable" format="boolean" />
+        <!-- Nota con la que arranca la barra. -->
+        <attr name="valorInicial" format="integer" />
+    </declare-styleable>
+</resources>

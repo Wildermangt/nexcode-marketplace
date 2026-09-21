@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Onda tactil blanca translucida sobre el degradado de marca -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/nex_blanco_20">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <corners android:radius="18dp" />
+        </shape>
+    </item>
+    <item>
+        <selector>
+            <item android:state_enabled="false" android:drawable="@drawable/forma_boton_desactivado" />
+            <item android:drawable="@drawable/forma_boton_degradado" />
+        </selector>
+    </item>
+</ripple>

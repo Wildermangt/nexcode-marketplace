@@ -1,0 +1,3 @@
+Captura del escenario completo en Make (Gmail Watch emails -> Google Sheets Add a Row)
+
+Guarda aqui la captura.

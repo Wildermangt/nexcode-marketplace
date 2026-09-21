@@ -1,0 +1,130 @@
+{
+    "name": "Gmail a Google Sheets - Guia II Corte II",
+    "flow": [
+        {
+            "id": 1,
+            "module": "google-email:TriggerNewEmail",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": null
+            },
+            "mapper": {
+                "folder": "INBOX",
+                "query": "subject:(Prueba de automatización desde Make) newer_than:1d",
+                "maxResults": 1,
+                "markSeen": false,
+                "folderType": "folder",
+                "simplifyEmailContent": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0,
+                    "name": "Nuevos correos"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "CONEXION CON GMAIL"
+                        }
+                    },
+                    "expect": {
+                        "folder": {
+                            "mode": "chose",
+                            "label": "Recibidos"
+                        },
+                        "folderType": {
+                            "label": "Carpeta"
+                        },
+                        "markSeen": {
+                            "mode": "chose"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "id": 2,
+            "module": "google-sheets:addRow",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": null
+            },
+            "mapper": {
+                "from": "drive",
+                "mode": "select",
+                "spreadsheetId": "14G7JmQrZwtc0SHKIPibgZxFtSnELhnoC-L5j8dc5NM4",
+                "sheetId": "Untitled",
+                "includesHeaders": true,
+                "insertDataOption": "INSERT_ROWS",
+                "valueInputOption": "USER_ENTERED",
+                "insertUnformatted": false,
+                "values": {
+                    "0": "{{1.internalDate}}",
+                    "1": "{{1.fromName}}",
+                    "2": "{{1.subject}}",
+                    "3": "{{1.fromEmail}}",
+                    "4": "{{1.fullTextBody}}"
+                }
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "Guardar en Sheets"
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "CONEXION CON GOOGLE"
+                        }
+                    },
+                    "expect": {
+                        "from": {
+                            "label": "Mi impulso"
+                        },
+                        "mode": {
+                            "label": "Buscar por ruta"
+                        },
+                        "spreadsheetId": {
+                            "mode": "chose",
+                            "label": "CONEXION A MAKE"
+                        },
+                        "sheetId": {
+                            "mode": "chose",
+                            "label": "Hoja 1"
+                        },
+                        "includesHeaders": {
+                            "mode": "chose",
+                            "label": "Si"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com"
+    },
+    "scheduling": {
+        "type": "indefinitely",
+        "interval": 900
+    }
+}

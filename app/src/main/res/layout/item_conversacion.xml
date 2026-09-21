@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Tarjeta"
+    android:id="@+id/tarjeta"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margen_pantalla"
+    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/inicial"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/circulo_marca"
+            android:gravity="center"
+            android:textColor="@color/nex_texto_sobre_marca"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="JG" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/nex_texto"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Jeferson Gonzalez" />
+
+            <TextView
+                android:id="@+id/ultimo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/nex_texto_suave"
+                android:textSize="12sp"
+                tools:text="Buenas tardes, tienen disponibilidad?" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/nex_texto_suave"
+                android:textSize="11sp"
+                tools:text="7:42 p. m." />
+
+            <TextView
+                android:id="@+id/sinLeer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/punto_notificacion"
+                android:minWidth="18dp"
+                android:gravity="center"
+                android:paddingHorizontal="5dp"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="1"
+                tools:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

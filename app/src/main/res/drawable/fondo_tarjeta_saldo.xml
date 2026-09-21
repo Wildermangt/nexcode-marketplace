@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Degradado de los tres tonos del logotipo: azul profundo, azul y verde menta -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="315"
+        android:startColor="@color/nex_azul_profundo"
+        android:centerColor="@color/nex_azul"
+        android:endColor="@color/nex_verde"
+        android:type="linear" />
+    <corners android:radius="26dp" />
+</shape>

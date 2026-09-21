@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margen_pantalla">20dp</dimen>
+    <dimen name="radio_tarjeta">24dp</dimen>
+    <dimen name="radio_control">16dp</dimen>
+    <dimen name="separacion">16dp</dimen>
+    <dimen name="separacion_grande">24dp</dimen>
+    <dimen name="alto_boton">56dp</dimen>
+    <dimen name="alto_barra_inferior">72dp</dimen>
+</resources>

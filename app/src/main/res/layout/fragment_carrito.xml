@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_encabezado"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/margen_pantalla"
+        android:paddingTop="20dp"
+        android:paddingBottom="22dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Texto.TituloPantalla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nav_carrito"
+                android:textColor="@color/nex_texto_sobre_marca" />
+
+            <TextView
+                android:id="@+id/conteo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:alpha="0.85"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="13sp"
+                tools:text="3 productos" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/vaciar"
+            style="@style/Texto.Etiqueta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_pulsable"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:text="@string/vaciar_carrito"
+            android:textColor="@color/nex_texto_sobre_marca" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+            <include
+                android:id="@+id/vacio"
+                layout="@layout/vista_vacia" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Resumen y pago -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/resumen"
+        style="@style/Tarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="26dp"
+        app:cardElevation="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/subtotal"
+                    android:textColor="@color/nex_texto_medio"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/subtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/nex_texto"
+                    android:textSize="13sp"
+                    tools:text="$ 2.418.000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/envio"
+                    android:textColor="@color/nex_texto_medio"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/envio_gratis"
+                    android:textColor="@color/nex_verde_oscuro"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="@color/nex_borde" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/total"
+                    android:textColor="@color/nex_texto"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/total"
+                    style="@style/Texto.Cifra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/nex_azul_profundo"
+                    tools:text="$ 2.418.000" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/pagar"
+                style="@style/Boton.Principal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/finalizar_compra" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progreso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:indicatorColor="@color/nex_verde"
+                app:trackCornerRadius="3dp"
+                app:trackThickness="4dp" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>

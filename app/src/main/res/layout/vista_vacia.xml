@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Estado vacio reutilizable: icono, titulo, detalle y una accion opcional. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingHorizontal="40dp"
+    android:paddingVertical="48dp"
+    android:visibility="gone">
+
+    <ImageView
+        android:id="@+id/iconoVacio"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/circulo_azul_suave"
+        android:contentDescription="@null"
+        android:padding="16dp"
+        android:src="@drawable/ic_vacio"
+        app:tint="@color/nex_azul" />
+
+    <TextView
+        android:id="@+id/tituloVacio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:textColor="@color/nex_texto"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Tu carrito esta vacio" />
+
+    <TextView
+        android:id="@+id/detalleVacio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/nex_texto_suave"
+        android:textSize="13sp"
+        tools:text="Explora el catalogo y agrega los equipos que necesitas" />
+
+    <Button
+        android:id="@+id/accionVacio"
+        style="@style/Boton.Principal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:paddingHorizontal="30dp"
+        android:visibility="gone"
+        tools:text="Ir al catalogo"
+        tools:visibility="visible" />
+
+</LinearLayout>

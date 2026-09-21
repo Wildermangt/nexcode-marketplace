@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Tema base de la aplicacion: Material 3 en modo claro. -->
+    <style name="Theme.Nexcode" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/nex_azul</item>
+        <item name="colorOnPrimary">@color/nex_texto_sobre_marca</item>
+        <item name="colorPrimaryContainer">@color/nex_azul_12</item>
+        <item name="colorOnPrimaryContainer">@color/nex_azul_profundo</item>
+        <item name="colorSecondary">@color/nex_verde_oscuro</item>
+        <item name="colorOnSecondary">@color/nex_texto_sobre_marca</item>
+        <item name="colorSecondaryContainer">@color/nex_verde_12</item>
+        <item name="colorOnSecondaryContainer">@color/nex_verde_oscuro</item>
+        <item name="colorError">@color/nex_rojo</item>
+        <item name="colorSurface">@color/nex_superficie</item>
+        <item name="colorOnSurface">@color/nex_texto</item>
+        <item name="colorOnSurfaceVariant">@color/nex_texto_medio</item>
+        <item name="colorOutline">@color/nex_borde</item>
+        <item name="android:colorBackground">@color/nex_fondo</item>
+        <item name="android:windowBackground">@color/nex_fondo</item>
+        <item name="android:statusBarColor">@color/nex_fondo</item>
+        <item name="android:navigationBarColor">@color/nex_superficie</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+        <!--
+             Material 3 tine las superficies elevadas con el color primario.
+             Se desactiva para que las tarjetas se vean blancas y la paleta de
+             NEXCODE aparezca solo donde se decidio aplicarla.
+        -->
+        <item name="elevationOverlayEnabled">false</item>
+        <item name="android:windowAnimationStyle">@style/Animacion.Nexcode.Ventana</item>
+        <item name="materialAlertDialogTheme">@style/Tema.Nexcode.Dialogo</item>
+    </style>
+
+    <!-- Pantallas cuyo encabezado es el degradado de marca: iconos de estado claros -->
+    <style name="Theme.Nexcode.Marca" parent="Theme.Nexcode">
+        <item name="android:statusBarColor">@color/nex_azul_profundo</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+
+    <!-- Pantalla de bienvenida -->
+    <style name="Theme.Nexcode.Splash" parent="Theme.Nexcode.Marca">
+        <item name="android:windowBackground">@drawable/fondo_marca</item>
+        <item name="android:navigationBarColor">@color/nex_azul_profundo</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+    </style>
+
+    <!-- La camara ocupa toda la pantalla sobre fondo negro -->
+    <style name="Theme.Nexcode.Camara" parent="Theme.Nexcode">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+    </style>
+
+    <!-- Transicion por defecto entre actividades -->
+    <style name="Animacion.Nexcode.Ventana" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/entrar_derecha</item>
+        <item name="android:activityOpenExitAnimation">@anim/salir_izquierda</item>
+        <item name="android:activityCloseEnterAnimation">@anim/entrar_izquierda</item>
+        <item name="android:activityCloseExitAnimation">@anim/salir_derecha</item>
+    </style>
+
+    <style name="Tema.Nexcode.Dialogo" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/Estilo.Nexcode.Dialogo</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/Estilo.Nexcode.Dialogo.Titulo</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Boton.Texto</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Boton.Texto.Neutro</item>
+    </style>
+
+    <style name="Estilo.Nexcode.Dialogo" parent="MaterialAlertDialog.Material3">
+        <item name="shapeAppearanceOverlay">@style/Forma.Nexcode.Dialogo</item>
+    </style>
+
+    <style name="Forma.Nexcode.Dialogo" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+
+    <style name="Estilo.Nexcode.Dialogo.Titulo" parent="MaterialAlertDialog.Material3.Title.Text">
+        <item name="android:textColor">@color/nex_texto</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Hoja inferior: se usa para calificar y para elegir el origen de la foto -->
+    <style name="Tema.Nexcode.HojaInferior" parent="Theme.Material3.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Estilo.Nexcode.HojaInferior</item>
+    </style>
+
+    <style name="Estilo.Nexcode.HojaInferior" parent="Widget.Material3.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">@style/Forma.Nexcode.HojaInferior</item>
+        <item name="backgroundTint">@color/nex_superficie</item>
+    </style>
+
+    <style name="Forma.Nexcode.HojaInferior" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">28dp</item>
+        <item name="cornerSizeTopRight">28dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+</resources>

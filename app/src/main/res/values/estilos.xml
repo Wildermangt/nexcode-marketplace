@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============================ TEXTO ============================ -->
+    <style name="Texto" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/nex_texto</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <style name="Texto.TituloPantalla">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="Texto.TituloSeccion">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Texto.Cuerpo">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/nex_texto_medio</item>
+        <item name="android:lineSpacingMultiplier">1.25</item>
+    </style>
+
+    <style name="Texto.Etiqueta">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/nex_texto_suave</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="Texto.Cifra">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">-0.02</item>
+    </style>
+
+    <style name="Texto.Marca">
+        <item name="android:textColor">@color/nex_texto_sobre_marca</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.30</item>
+    </style>
+
+    <style name="Texto.MarcaSecundaria">
+        <item name="android:textColor">@color/nex_verde</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:letterSpacing">0.45</item>
+    </style>
+
+    <!-- ============================ BOTONES ============================ -->
+    <!--
+      El boton principal usa el degradado de la marca. Se apoya en
+      AppCompatButton (y no en MaterialButton) porque este ultimo ignora
+      android:background y solo admite tintes de un unico color.
+      La onda tactil viene incluida en el propio drawable.
+    -->
+    <style name="Boton.Principal" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/boton_degradado</item>
+        <item name="android:textColor">@color/nex_texto_sobre_marca</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">@dimen/alto_boton</item>
+        <item name="android:gravity">center</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:stateListAnimator">@animator/elevacion_boton</item>
+    </style>
+
+    <style name="Boton.Secundario" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/nex_azul_profundo</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">@dimen/alto_boton</item>
+        <item name="strokeColor">@color/nex_borde</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="cornerRadius">@dimen/radio_control</item>
+        <item name="iconTint">@color/nex_azul</item>
+        <item name="rippleColor">@color/nex_azul_12</item>
+    </style>
+
+    <style name="Boton.Texto" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/nex_azul</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Boton.Texto.Neutro">
+        <item name="android:textColor">@color/nex_texto_suave</item>
+    </style>
+
+    <!-- Tecla del teclado numerico propio de la pantalla de transferencia -->
+    <style name="Tecla" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/nex_texto</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">36dp</item>
+        <item name="rippleColor">@color/nex_azul_12</item>
+        <item name="iconTint">@color/nex_texto_medio</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">0dp</item>
+    </style>
+
+    <!-- ============================ CONTENEDORES ============================ -->
+    <style name="Tarjeta" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">@dimen/radio_tarjeta</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardBackgroundColor">@color/nex_superficie</item>
+        <item name="strokeColor">@color/nex_borde</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <style name="Tarjeta.Plana">
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/nex_superficie_suave</item>
+    </style>
+
+    <!-- ============================ CAMPOS ============================ -->
+    <style name="Campo" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/radio_control</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radio_control</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radio_control</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radio_control</item>
+        <item name="boxStrokeColor">@color/campo_borde</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextColor">@color/nex_azul</item>
+        <item name="android:textColorHint">@color/nex_texto_suave</item>
+        <item name="startIconTint">@color/nex_texto_suave</item>
+        <item name="endIconTint">@color/nex_texto_suave</item>
+    </style>
+
+    <style name="FiltroChip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_fondo</item>
+        <item name="android:textColor">@color/chip_texto</item>
+        <item name="chipStrokeColor">@color/chip_borde</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipCornerRadius">14dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="rippleColor">@color/nex_azul_12</item>
+    </style>
+
+    <!-- ============================ INTERRUPTORES ============================ -->
+    <style name="Interruptor" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="trackTint">@color/interruptor_pista</item>
+        <item name="thumbTint">@color/interruptor_boton</item>
+        <item name="trackDecorationTint">@android:color/transparent</item>
+    </style>
+
+    <!-- ============================ BARRA INFERIOR ============================ -->
+    <style name="BarraInferior" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/nex_superficie</item>
+        <item name="itemIconTint">@color/nav_item</item>
+        <item name="itemTextColor">@color/nav_item</item>
+        <item name="itemActiveIndicatorStyle">@style/IndicadorBarraInferior</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemRippleColor">@color/nex_azul_12</item>
+    </style>
+
+    <style name="IndicadorBarraInferior" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/nex_azul_12</item>
+        <item name="android:width">64dp</item>
+        <item name="android:height">32dp</item>
+    </style>
+</resources>

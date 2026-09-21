@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Tarjeta"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margen_pantalla"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imagen"
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:background="@drawable/fondo_redondeado_claro"
+            android:contentDescription="@string/desc_imagen_producto"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/ic_imagen" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/nex_texto"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="Portatil HP ProBook 450 G10 Core i7" />
+
+            <TextView
+                android:id="@+id/precio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/nex_azul_profundo"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="$ 5.005.000" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/existencias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/nex_texto_suave"
+                    android:textSize="11sp"
+                    tools:text="12 disponibles" />
+
+                <TextView
+                    android:id="@+id/estado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/fondo_pastilla_verde"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:textColor="@color/nex_verde_oscuro"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    tools:text="NUEVO" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/editar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="@drawable/fondo_pulsable_circular"
+            android:contentDescription="@string/editar_producto"
+            android:padding="9dp"
+            android:src="@drawable/ic_editar"
+            app:tint="@color/nex_azul" />
+
+        <ImageButton
+            android:id="@+id/eliminar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/fondo_pulsable_circular"
+            android:contentDescription="@string/eliminar_producto"
+            android:padding="9dp"
+            android:src="@drawable/ic_borrar"
+            app:tint="@color/nex_rojo" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

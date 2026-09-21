@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Encabezado con metricas -->
+        <LinearLayout
+            android:id="@+id/encabezado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_encabezado"
+            android:orientation="vertical"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/atras"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/fondo_pulsable_circular"
+                    android:contentDescription="@string/desc_atras"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_atras"
+                    app:tint="@color/nex_texto_sobre_marca" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/admin_titulo"
+                    android:textColor="@color/nex_texto_sobre_marca"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal"
+                android:paddingHorizontal="4dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/fondo_pastilla_blanca"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="14dp">
+
+                    <TextView
+                        android:id="@+id/metricaProductos"
+                        style="@style/Texto.Cifra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/nex_azul_profundo"
+                        android:textSize="20sp"
+                        tools:text="20" />
+
+                    <TextView
+                        style="@style/Texto.Etiqueta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_productos" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/fondo_pastilla_blanca"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="14dp">
+
+                    <TextView
+                        android:id="@+id/metricaUnidades"
+                        style="@style/Texto.Cifra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/nex_azul_profundo"
+                        android:textSize="20sp"
+                        tools:text="318" />
+
+                    <TextView
+                        style="@style/Texto.Etiqueta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_unidades" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/fondo_pastilla_blanca"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="14dp">
+
+                    <TextView
+                        android:id="@+id/metricaInventario"
+                        style="@style/Texto.Cifra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/nex_verde_oscuro"
+                        android:textSize="20sp"
+                        tools:text="$ 214,8 M" />
+
+                    <TextView
+                        style="@style/Texto.Etiqueta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/valor_inventario" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Carga inicial del catalogo mayorista -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tarjetaSembrar"
+            style="@style/Tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="-18dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/circulo_verde_suave"
+                        android:contentDescription="@null"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_paquete"
+                        app:tint="@color/nex_verde_oscuro" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/sembrar_catalogo"
+                        android:textColor="@color/nex_texto"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progresoSiembra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:max="20"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/nex_verde"
+                    app:trackCornerRadius="3dp"
+                    app:trackThickness="5dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Paso a Storage de las fotos que aun se sirven desde la aplicacion -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tarjetaMigrar"
+            style="@style/Tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/circulo_azul_suave"
+                        android:contentDescription="@null"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_galeria"
+                        app:tint="@color/nex_azul" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/migrar_fotos"
+                            android:textColor="@color/nex_texto"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/detalleMigrar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/nex_texto_suave"
+                            android:textSize="12sp"
+                            tools:text="20 fotografias se estan sirviendo desde la aplicacion" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/progresoMigrar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/nex_azul"
+                    app:trackCornerRadius="3dp"
+                    app:trackThickness="5dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            style="@style/Texto.TituloSeccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/total_productos" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lista"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="96dp" />
+
+            <include
+                android:id="@+id/vacio"
+                layout="@layout/vista_vacia" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/nuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/margen_pantalla"
+        android:backgroundTint="@color/nex_azul"
+        android:text="@string/nuevo_producto"
+        android:textColor="@color/nex_texto_sobre_marca"
+        app:icon="@drawable/ic_mas"
+        app:iconTint="@color/nex_texto_sobre_marca" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

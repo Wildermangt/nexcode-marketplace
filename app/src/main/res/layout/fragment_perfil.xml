@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical"
+        android:paddingBottom="28dp">
+
+        <!-- Ficha del usuario -->
+        <LinearLayout
+            android:id="@+id/encabezado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fondo_encabezado"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/margen_pantalla"
+            android:paddingTop="28dp"
+            android:paddingBottom="38dp">
+
+            <TextView
+                android:id="@+id/iniciales"
+                android:layout_width="86dp"
+                android:layout_height="86dp"
+                android:background="@drawable/circulo_blanco_suave"
+                android:gravity="center"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="JG" />
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Jeferson Gonzalez" />
+
+            <TextView
+                android:id="@+id/correo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:alpha="0.9"
+                android:textColor="@color/nex_texto_sobre_marca"
+                android:textSize="13sp"
+                tools:text="wildermangt@gmail.com" />
+
+            <TextView
+                android:id="@+id/tipoUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/fondo_pastilla_blanca"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="6dp"
+                android:textColor="@color/nex_azul_profundo"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:text="COMPRADOR" />
+        </LinearLayout>
+
+        <!-- Resumen -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="-22dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/totalPedidos"
+                        style="@style/Texto.Cifra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/nex_azul_profundo"
+                        tools:text="3" />
+
+                    <TextView
+                        style="@style/Texto.Etiqueta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/mis_pedidos" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Tarjeta"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/totalGastado"
+                        style="@style/Texto.Cifra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/nex_verde_oscuro"
+                        tools:text="$ 4,2 M" />
+
+                    <TextView
+                        style="@style/Texto.Etiqueta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="@string/total" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Opciones -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="4dp">
+
+                <LinearLayout
+                    android:id="@+id/opcionPedidos"
+                    style="@style/FilaOpcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/circulo_azul_suave"
+                        android:contentDescription="@null"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_pedido"
+                        app:tint="@color/nex_azul" />
+
+                    <TextView
+                        style="@style/TextoOpcion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/mis_pedidos" />
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_derecha"
+                        app:tint="@color/nex_texto_suave" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/opcionPanel"
+                    style="@style/FilaOpcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/circulo_verde_suave"
+                        android:contentDescription="@null"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_vender"
+                        app:tint="@color/nex_verde_oscuro" />
+
+                    <TextView
+                        style="@style/TextoOpcion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/panel_vendedor" />
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_derecha"
+                        app:tint="@color/nex_texto_suave" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/opcionChat"
+                    style="@style/FilaOpcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/circulo_azul_suave"
+                        android:contentDescription="@null"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_chat"
+                        app:tint="@color/nex_azul" />
+
+                    <TextView
+                        style="@style/TextoOpcion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/nav_chat" />
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_derecha"
+                        app:tint="@color/nex_texto_suave" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/opcionSalir"
+                    style="@style/FilaOpcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/circulo_rojo_suave"
+                        android:contentDescription="@null"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_salir"
+                        app:tint="@color/nex_rojo" />
+
+                    <TextView
+                        style="@style/TextoOpcion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/salir_sesion"
+                        android:textColor="@color/nex_rojo" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/miembroDesde"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textColor="@color/nex_texto_suave"
+            android:textSize="12sp"
+            tools:text="Miembro desde 9 de septiembre de 2026" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

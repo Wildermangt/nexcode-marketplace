@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/nex_fondo"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/encabezado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_encabezado"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="22dp">
+
+        <ImageButton
+            android:id="@+id/atras"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/fondo_pulsable_circular"
+            android:contentDescription="@string/desc_atras"
+            android:padding="10dp"
+            android:src="@drawable/ic_atras"
+            app:tint="@color/nex_texto_sobre_marca" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="@string/mis_pedidos"
+            android:textColor="@color/nex_texto_sobre_marca"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp" />
+
+        <include
+            android:id="@+id/vacio"
+            layout="@layout/vista_vacia" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:indicatorColor="@color/nex_azul"
+            app:indicatorSize="34dp"
+            app:trackThickness="3dp" />
+    </FrameLayout>
+
+</LinearLayout>
