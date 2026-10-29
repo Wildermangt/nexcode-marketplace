@@ -6,6 +6,9 @@ Guia I, Corte II – ING. Jairo Armando Salcedo Aranda.
 
 Autores: Jeferson Wilderman Gonzalez Tenjo y Jose Leandro Ocampo Camacho.
 
+Documentacion del proyecto en [`docs/`](docs/): planeacion y requisitos,
+mockups de las pantallas y registro de pruebas y correcciones.
+
 ---
 
 ## Que es
@@ -195,6 +198,7 @@ vuelve como comprador (ver *Registro e inicio de sesion*).
 Desde la linea de comandos:
 
 ```bash
+./gradlew testDebugUnitTest    # 23 pruebas unitarias
 ./gradlew assembleDebug        # APK de depuracion
 ./gradlew assembleRelease      # APK firmada con nexcode-marketplace.jks
 ```
