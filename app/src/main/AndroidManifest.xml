@@ -16,7 +16,7 @@
 
     <application
         android:name=".NexcodeMarketplace"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/reglas_extraccion"
         android:fullBackupContent="@xml/reglas_respaldo"
         android:icon="@mipmap/ic_launcher"
