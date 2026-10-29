@@ -1,0 +1,35 @@
+<!DOCTYPE html><html lang="es"><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#333;padding:24px}
+h1{font-size:22px;margin-bottom:4px} .sub{font-size:13px;color:#777;margin-bottom:18px}
+.fila{display:flex;gap:28px}
+.pant{width:300px}
+.nom{font-size:13px;font-weight:bold;margin-bottom:6px;text-align:center}
+.tel{width:300px;height:600px;border:3px solid #444;border-radius:26px;overflow:hidden;display:flex;flex-direction:column;background:#fafafa}
+.barra{height:18px;background:#ddd}
+.app{height:44px;background:#bbb;display:flex;align-items:center;padding:0 12px;font-weight:bold;font-size:14px;gap:8px}
+.cont{flex:1;padding:10px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.nav{height:52px;border-top:1px solid #aaa;display:flex;background:#eee}
+.nav div{flex:1;font-size:9px;text-align:center;padding-top:28px;position:relative;color:#666}
+.nav div:before{content:"";position:absolute;top:9px;left:50%;width:16px;height:16px;margin-left:-8px;border:1.5px solid #888;border-radius:4px}
+.nav .act{color:#000;font-weight:bold}.nav .act:before{background:#888}
+.img{background:#e4e4e4;border:1px solid #aaa;position:relative;overflow:hidden}
+.img:before,.img:after{content:"";position:absolute;top:50%;left:-10%;width:120%;border-top:1px solid #aaa}
+.img:before{transform:rotate(25deg)}.img:after{transform:rotate(-25deg)}
+.txt{font-size:11px;color:#444}.t{font-size:13px;font-weight:bold}.g{font-size:18px;font-weight:bold}
+.lin{height:7px;background:#ccc;border-radius:3px}
+.inp{height:34px;border:1.5px solid #999;border-radius:6px;font-size:11px;color:#888;padding:9px 8px;background:#fff}
+.btn{height:36px;border-radius:18px;background:#777;color:#fff;font-size:12px;font-weight:bold;display:flex;align-items:center;justify-content:center}
+.btn2{height:32px;border-radius:16px;border:1.5px solid #777;font-size:11px;display:flex;align-items:center;justify-content:center}
+.chips{display:flex;gap:5px;flex-wrap:wrap}.chip{font-size:10px;border:1px solid #888;border-radius:12px;padding:3px 9px}.chip.on{background:#888;color:#fff}
+.tarj{border:1px solid #aaa;border-radius:8px;padding:8px;background:#fff;display:flex;flex-direction:column;gap:5px}
+.h{display:flex;gap:8px;align-items:center}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bur{max-width:78%;border-radius:12px;padding:7px 9px;font-size:10.5px;border:1px solid #aaa;background:#fff}
+.bur.yo{align-self:flex-end;background:#ddd}
+.aviso{font-size:10px;border:1.5px dashed #888;border-radius:6px;padding:6px;background:#f2f2f2}
+.fab{position:relative;align-self:flex-end;width:44px;height:44px;border-radius:22px;background:#777;color:#fff;font-size:22px;text-align:center;line-height:42px}
+.dona{width:110px;height:110px;border-radius:55px;border:22px solid #bbb;border-right-color:#888;border-bottom-color:#999;align-self:center}
+.esp{flex:1}
+.h .inp{flex:1}.h .btn2{padding:0 12px;flex:none;min-width:40px}
+</style><body><h1>NEXCODE Marketplace · Wireframes</h1><div class="sub">Mockups de baja fidelidad de las pantallas principales · Nexcode · octubre de 2026</div><div class="fila"><div class="pant"><div class="nom">1. Inicio de sesión / registro</div><div class="tel"><div class="barra"></div><div class="app">NEXCODE Marketplace</div><div class="cont"><div class="img" style="align-self:center;height:90px;width:45%"></div><div class="g">Bienvenido</div><div class="inp">Correo electrónico</div><div class="inp">Contraseña</div><div class="h"><div class="txt">[  ] Quiero vender: crear cuenta de administrador</div></div><div class="btn">Iniciar sesión</div><div class="btn2">Crear cuenta</div><div class="esp"></div></div></div></div><div class="pant"><div class="nom">2. Catálogo con búsqueda y filtros</div><div class="tel"><div class="barra"></div><div class="app">Catálogo</div><div class="cont"><div class="inp">Buscar por nombre, marca o referencia</div><div class="chips"><div class="chip on">Todas</div><div class="chip">Computo</div><div class="chip">Monitores</div><div class="chip">Redes</div><div class="chip">Video</div></div><div class="grid"><div class="tarj"><div class="img" style="height:70px;width:100%"></div><div class="txt">Portátil HP ProBook</div><div class="t">$ 5.005.000</div><div class="lin" style="width:50%"></div></div><div class="tarj"><div class="img" style="height:70px;width:100%"></div><div class="txt">ThinkPad E14</div><div class="t">$ 4.225.000</div><div class="lin" style="width:50%"></div></div><div class="tarj"><div class="img" style="height:70px;width:100%"></div><div class="txt">Monitor 27&quot;</div><div class="t">$ 1.014.000</div><div class="lin" style="width:50%"></div></div><div class="tarj"><div class="img" style="height:70px;width:100%"></div><div class="txt">Router Wi-Fi 6</div><div class="t">$ 806.000</div><div class="lin" style="width:50%"></div></div></div></div><div class="nav"><div class="">Inicio</div><div class="act">Catalogo</div><div class="">Carrito</div><div class="">Chat</div><div class="">Perfil</div></div></div></div><div class="pant"><div class="nom">3. Detalle del producto</div><div class="tel"><div class="barra"></div><div class="app">Detalle</div><div class="cont"><div class="img" style="height:170px;width:100%"></div><div class="t">Portátil HP ProBook 450 G10 Core i7</div><div class="h"><div class="txt">★★★★☆ 4,6 (12)</div><div class="txt">· Nuevo</div></div><div class="g">$ 5.005.000</div><div class="txt">12 disponibles · Marca HP · Ref. HP-PB450G10-I7</div><div class="lin" style="width:95%"></div><div class="lin" style="width:90%"></div><div class="lin" style="width:70%"></div><div class="esp"></div><div class="btn">Agregar al carrito</div><div class="btn2">Calificar</div></div></div></div><div class="pant"><div class="nom">4. Carrito de compras</div><div class="tel"><div class="barra"></div><div class="app">Carrito</div><div class="cont"><div class="tarj"><div class="h"><div class="img" style="height:46px;width:46px"></div><div class="txt">Portátil HP ProBook</div></div><div class="h"><div class="txt">$ 5.005.000</div><div class="esp"></div><div class="txt">[ − ]  1  [ + ]  🗑</div></div></div><div class="tarj"><div class="h"><div class="img" style="height:46px;width:46px"></div><div class="txt">Router Wi-Fi 6</div></div><div class="h"><div class="txt">$ 806.000</div><div class="esp"></div><div class="txt">[ − ]  2  [ + ]  🗑</div></div></div><div class="esp"></div><div class="tarj"><div class="h"><div class="txt">Unidades</div><div class="esp"></div><div class="txt">3</div></div><div class="h"><div class="t">Total</div><div class="esp"></div><div class="t">$ 6.617.000</div></div></div><div class="btn">Finalizar compra</div></div><div class="nav"><div class="">Inicio</div><div class="">Catalogo</div><div class="act">Carrito</div><div class="">Chat</div><div class="">Perfil</div></div></div></div></div></body></html>
