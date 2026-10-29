@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Android 11 o anterior. La sesión y la copia SQLite (pedidos, mensajes y
+     usuarios) no salen del teléfono en las copias de seguridad. -->
 <full-backup-content>
     <exclude domain="sharedpref" path="sesion_nexcode.xml" />
+    <exclude domain="database" path="." />
 </full-backup-content>
