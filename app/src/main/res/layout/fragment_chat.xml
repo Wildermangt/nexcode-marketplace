@@ -62,6 +62,26 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <!-- Llamada de voz con Leandro, el agente de Retell AI de Nexcode -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/llamarLeandro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margen_pantalla"
+            android:layout_marginTop="12dp"
+            android:text="@string/leandro_hablar"
+            app:icon="@drawable/ic_agente" />
+
+        <TextView
+            android:id="@+id/estadoLeandro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/margen_pantalla"
+            android:paddingTop="4dp"
+            android:textColor="@color/nex_texto"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaMensajes"
             android:layout_width="match_parent"
