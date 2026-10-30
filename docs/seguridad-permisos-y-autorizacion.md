@@ -26,7 +26,7 @@ cámara y la aplicación funciona como comprador sin concederlo.
 
 Ejecutadas desde la consola de Firebase (*Rules → Playground*) del proyecto
 `nexcode-marketplace`. Los pasos reutilizables están en
-`04-seguridad/Pruebas-Autorizacion-Firestore-Playground.md` (carpeta del proyecto final, junto a los tres repositorios).
+`docs/pruebas-autorizacion-firestore.md`.
 
 | # | Caso | Resultado |
 |---|---|---|
