@@ -63,6 +63,10 @@
             android:name=".ui.camara.CamaraActivity"
             android:theme="@style/Theme.Nexcode.Camara" />
 
+        <activity
+            android:name=".ui.asistente.AsistenteActivity"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>
