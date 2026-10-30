@@ -10,6 +10,11 @@ import com.nexcode.marketplace.dominio.Usuario
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
+
+// Sin red, el get() de Firestore puede quedarse esperando al servidor en lugar
+// de fallar; pasado este tiempo se usa la copia de SQLite.
+private const val ESPERA_RED_MS = 5_000L
 
 /**
  * Carrito de compras y pedidos.
@@ -110,9 +115,11 @@ class RepositorioCarrito(
      */
     suspend fun pedidos(compradorId: String): List<Pedido> = withContext(Dispatchers.IO) {
         try {
-            val documentos = base.collection(ServicioFirebase.PEDIDOS)
-                .whereEqualTo("compradorId", compradorId)
-                .get().await().documents
+            val documentos = withTimeoutOrNull(ESPERA_RED_MS) {
+                base.collection(ServicioFirebase.PEDIDOS)
+                    .whereEqualTo("compradorId", compradorId)
+                    .get().await().documents
+            } ?: return@withContext local.pedidos(compradorId)
 
             val pedidos = documentos.map { documento ->
                 @Suppress("UNCHECKED_CAST")

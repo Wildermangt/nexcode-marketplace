@@ -33,7 +33,13 @@ class BarraEstrellas @JvmOverloads constructor(
     var editable: Boolean = false
         set(nuevo) {
             field = nuevo
-            estrellas.forEach { it.isClickable = nuevo }
+            estrellas.forEach {
+                it.isClickable = nuevo
+                // En modo lectura habla la barra completa; en modo edicion, cada estrella.
+                it.importantForAccessibility =
+                    if (nuevo) IMPORTANT_FOR_ACCESSIBILITY_YES else IMPORTANT_FOR_ACCESSIBILITY_NO
+            }
+            actualizarDescripcion()
         }
 
     /** Se invoca con la nota elegida por el usuario. */
@@ -64,6 +70,9 @@ class BarraEstrellas @JvmOverloads constructor(
                 setImageResource(R.drawable.ic_estrella_borde)
                 setColorFilter(ContextCompat.getColor(contexto, R.color.nex_ambar))
                 isClickable = editable
+                contentDescription = contexto.getString(R.string.desc_calificar_con, indice + 1)
+                importantForAccessibility =
+                    if (editable) IMPORTANT_FOR_ACCESSIBILITY_YES else IMPORTANT_FOR_ACCESSIBILITY_NO
                 setOnClickListener {
                     if (!editable) return@setOnClickListener
                     marcar(indice + 1)
@@ -96,6 +105,13 @@ class BarraEstrellas @JvmOverloads constructor(
                 )
             )
         }
+        actualizarDescripcion()
+    }
+
+    /** En modo lectura, la barra se anuncia como "Calificación: N de 5 estrellas". */
+    private fun actualizarDescripcion() {
+        contentDescription =
+            if (editable) null else context.getString(R.string.desc_calificacion, valor)
     }
 
     private fun dp(valor: Int): Int =

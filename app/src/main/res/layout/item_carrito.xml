@@ -61,10 +61,10 @@
 
                 <ImageButton
                     android:id="@+id/menos"
+                    android:contentDescription="@string/desc_disminuir_cantidad"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:background="@drawable/fondo_pulsable_circular"
-                    android:contentDescription="@string/eliminar"
                     android:padding="6dp"
                     android:src="@drawable/ic_menos"
                     app:tint="@color/nex_azul" />
@@ -84,7 +84,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:background="@drawable/fondo_pulsable_circular"
-                    android:contentDescription="@string/agregar_carrito"
+                    android:contentDescription="@string/desc_aumentar_cantidad"
                     android:padding="6dp"
                     android:src="@drawable/ic_mas"
                     app:tint="@color/nex_azul" />
