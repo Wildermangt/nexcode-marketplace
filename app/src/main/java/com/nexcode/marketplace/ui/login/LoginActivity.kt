@@ -53,7 +53,6 @@ class LoginActivity : AppCompatActivity() {
         modoRegistro = registro
         vistas.campoNombre.mostrar(registro)
         vistas.campoConfirmar.mostrar(registro)
-        vistas.interruptorVendedor.mostrar(registro)
         vistas.titulo.text = getString(
             if (registro) R.string.crear_cuenta else R.string.bienvenido
         )
@@ -82,11 +81,10 @@ class LoginActivity : AppCompatActivity() {
                         nombre = vistas.entradaNombre.text.toString(),
                         correo = correo,
                         contrasena = contrasena,
-                        tipo = if (vistas.interruptorVendedor.isChecked) {
-                            TipoUsuario.ADMINISTRADOR
-                        } else {
-                            TipoUsuario.COMPRADOR
-                        }
+                        // La app solo crea cuentas de comprador. Los vendedores
+                        // (administradores) se dan de alta a mano en la consola de
+                        // Firebase: evita la escalada de privilegios (hallazgo V1).
+                        tipo = TipoUsuario.COMPRADOR
                     )
                 } else {
                     usuarios.entrar(correo, contrasena)

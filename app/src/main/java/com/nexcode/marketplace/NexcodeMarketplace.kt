@@ -1,6 +1,7 @@
 package com.nexcode.marketplace
 
 import android.app.Application
+import com.nexcode.marketplace.datos.RepositorioAsistente
 import com.nexcode.marketplace.datos.RepositorioCarrito
 import com.nexcode.marketplace.datos.RepositorioChat
 import com.nexcode.marketplace.datos.RepositorioProductos
@@ -36,6 +37,11 @@ class NexcodeMarketplace : Application() {
 
     val repositorioChat: RepositorioChat by lazy {
         RepositorioChat(almacenLocal)
+    }
+
+    /** Asistente de compras con IA (Gemini vía Firebase AI Logic). */
+    val repositorioAsistente: RepositorioAsistente by lazy {
+        RepositorioAsistente(repositorioProductos)
     }
 
     val sembrador: SembradorCatalogo by lazy {

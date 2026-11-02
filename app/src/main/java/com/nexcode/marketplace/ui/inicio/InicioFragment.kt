@@ -15,6 +15,7 @@ import com.nexcode.marketplace.databinding.FragmentInicioBinding
 import com.nexcode.marketplace.dominio.Categorias
 import com.nexcode.marketplace.dominio.Producto
 import com.nexcode.marketplace.ui.admin.AdminActivity
+import com.nexcode.marketplace.ui.asistente.AsistenteActivity
 import com.nexcode.marketplace.ui.catalogo.AdaptadorProductos
 import com.nexcode.marketplace.ui.comun.ajustarASistema
 import com.nexcode.marketplace.ui.comun.app
@@ -80,6 +81,10 @@ class InicioFragment : Fragment() {
         vistas.tarjetaPanel.visibility = if (esVendedor) View.VISIBLE else View.GONE
         vistas.tarjetaPanel.setOnClickListener {
             startActivity(Intent(requireContext(), AdminActivity::class.java))
+        }
+
+        vistas.tarjetaAsistente.setOnClickListener {
+            AsistenteActivity.abrir(requireContext())
         }
 
         Animaciones.entradaEscalonada(

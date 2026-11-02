@@ -16,10 +16,17 @@ service cloud.firestore {
       return request.auth != null;
     }
 
+    function esYo(uid) {
+      return autenticado() && request.auth.uid == uid;
+    }
+
+    // Se comprueba que la ficha exista y se lee con valor por defecto, para que
+    // un usuario sin ficha produzca una DENEGACION limpia y no un "Null value error".
     function esAdministrador() {
-      return autenticado() &&
-        get(/databases/$(base)/documents/usuarios/$(request.auth.uid))
-          .data.tipoUsuario == 'administrador';
+      return autenticado()
+        && exists(/databases/$(base)/documents/usuarios/$(request.auth.uid))
+        && get(/databases/$(base)/documents/usuarios/$(request.auth.uid))
+             .data.get('tipoUsuario', '') == 'administrador';
     }
 
     // Solo se cambian estas claves y ninguna mas.
@@ -28,9 +35,21 @@ service cloud.firestore {
     }
 
     // --- Usuarios: cada quien administra su propia ficha ---
+    //  read: solo el dueño o un administrador (el nombre del vendedor/comprador
+    //  viaja desnormalizado en el producto y en el chat, asi que nadie necesita
+    //  leer la ficha de otro).
     match /usuarios/{uid} {
-      allow read: if autenticado();
-      allow create, update: if autenticado() && request.auth.uid == uid;
+      allow read: if esYo(uid) || esAdministrador();
+      // V1 (escalada de privilegios): nadie puede crear su ficha como administrador
+      // desde la app. Los vendedores se dan de alta a mano en la consola de Firebase
+      // (tipoUsuario = 'administrador'). Un registro normal entra como comprador.
+      allow create: if esYo(uid)
+        && request.resource.data.get('tipoUsuario', 'comprador') != 'administrador';
+      // update: el usuario no puede cambiar su propio tipoUsuario (evita que un
+      // comprador existente se ascienda a administrador por actualizacion).
+      allow update: if esYo(uid)
+        && request.resource.data.get('tipoUsuario', 'comprador')
+           == resource.data.get('tipoUsuario', 'comprador');
       allow delete: if false;
     }
 
@@ -40,10 +59,24 @@ service cloud.firestore {
       allow create, delete: if esAdministrador();
 
       // El vendedor edita la ficha completa. El comprador solo puede tocar las
-      // cifras que su propia compra o su calificacion modifican.
+      // cifras que su propia compra o su calificacion modifican, y SOLO en el
+      // sentido correcto: el stock baja (no se infla), los vendidos suben lo que
+      // bajo el stock, y los votos suben de a uno.
       allow update: if esAdministrador()
-        || (autenticado() && soloCambia(['cantidad', 'vendidos']))
-        || (autenticado() && soloCambia(['calificacion', 'votos']));
+        || (autenticado() && soloCambia(['cantidad', 'vendidos'])
+            && request.resource.data.cantidad is int
+            && request.resource.data.cantidad >= 0
+            && request.resource.data.cantidad < resource.data.cantidad
+            && request.resource.data.vendidos
+               == resource.data.vendidos + (resource.data.cantidad - request.resource.data.cantidad))
+        || (autenticado() && soloCambia(['calificacion', 'votos'])
+            // voto nuevo (votos + 1) o cambio del voto propio (votos igual); nunca inflar
+            && request.resource.data.votos is int
+            && request.resource.data.votos >= resource.data.votos
+            && request.resource.data.votos <= resource.data.votos + 1
+            && request.resource.data.calificacion is number
+            && request.resource.data.calificacion >= 0
+            && request.resource.data.calificacion <= 5);
 
       // --- Calificaciones: una por persona, con su UID como identificador ---
       match /calificaciones/{uid} {
@@ -70,7 +103,10 @@ service cloud.firestore {
       match /mensajes/{mensaje} {
         allow read: if esAdministrador()
           || (autenticado() && request.auth.uid == comprador);
-        allow create: if autenticado()
+        // V2: antes bastaba con que autorId fuera el propio uid, asi que cualquiera
+        // podia inyectar mensajes en el chat de otro comprador. Ahora quien escribe
+        // tiene que ser el dueño del chat (el comprador) o un administrador.
+        allow create: if (esAdministrador() || request.auth.uid == comprador)
           && request.resource.data.autorId == request.auth.uid;
         allow update, delete: if false;
       }

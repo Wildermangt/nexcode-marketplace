@@ -203,8 +203,20 @@ Desde la linea de comandos:
 ./gradlew assembleRelease      # APK firmada con nexcode-marketplace.jks
 ```
 
-Firma de publicacion: almacen `nexcode-marketplace.jks`, alias `nexcode`,
-contrasena `Nexcode2026`.
+Firma de publicacion: almacen `nexcode-marketplace.jks`, alias `nexcode`. Las
+credenciales se leen de `keystore.properties` en la raiz del proyecto, que no se
+versiona (esta en `.gitignore`), con este formato:
+
+```properties
+storeFile=nexcode-marketplace.jks
+storePassword=<pedirla al equipo>
+keyAlias=nexcode
+keyPassword=<pedirla al equipo>
+```
+
+Sin ese archivo se puede compilar la version debug, pero no la de publicacion.
+La contrasena que estuvo publicada en versiones anteriores de este README se
+cambio el 30/10/2026 y ya no abre el almacen.
 
 ---
 

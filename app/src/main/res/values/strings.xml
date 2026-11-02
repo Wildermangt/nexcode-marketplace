@@ -12,7 +12,6 @@
     <string name="correo">Correo electronico</string>
     <string name="contrasena">Contrasena</string>
     <string name="confirmar_contrasena">Confirmar contrasena</string>
-    <string name="soy_vendedor">Quiero vender: crear cuenta de administrador</string>
     <string name="bienvenido">Hola de nuevo</string>
     <string name="bienvenido_detalle">Ingresa para seguir comprando</string>
     <string name="registro_detalle">Crea tu cuenta en menos de un minuto</string>
@@ -142,4 +141,16 @@
     <string name="desc_logo">Logotipo de NEXCODE</string>
     <string name="desc_buscar">Buscar</string>
     <string name="desc_carrito">Carrito de compras</string>
+    <string name="desc_disminuir_cantidad">Disminuir cantidad</string>
+    <string name="desc_aumentar_cantidad">Aumentar cantidad</string>
+    <string name="desc_calificacion">Calificación: %1$d de 5 estrellas</string>
+    <string name="desc_calificar_con">Calificar con %1$d estrellas</string>
+
+    <!-- Asistente de compras con IA -->
+    <string name="asistente_titulo">Asistente de compras</string>
+    <string name="asistente_subtitulo">Pregúntale a la IA qué comprar</string>
+    <string name="asistente_saludo">¡Hola! Soy tu asistente de compras de NEXCODE. Dime qué necesitas (por ejemplo, \"una impresora por menos de 400 mil\") y te recomiendo productos del catálogo.</string>
+    <string name="asistente_aviso_ia">🤖 Estás hablando con un asistente de inteligencia artificial. Sus respuestas pueden contener errores; verifica los datos del producto antes de comprar.</string>
+    <string name="asistente_sin_catalogo">Todavía no hay productos cargados en el catálogo para recomendarte.</string>
+    <string name="asistente_error_generico">No se pudo contactar al asistente.</string>
 </resources>

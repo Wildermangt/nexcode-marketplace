@@ -19,21 +19,32 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
-    // Firma de la version de publicacion. El almacen de claves acompana al
-    // proyecto para que la APK pueda reconstruirse sin pasos adicionales.
+    // Firma de la version de publicacion. Las credenciales se leen de
+    // keystore.properties (listado en .gitignore), nunca del codigo. Quien
+    // clone el proyecto sin ese archivo puede compilar debug, pero no release.
+    def archivoDeFirma = rootProject.file('keystore.properties')
+    def credenciales = new Properties()
+    if (archivoDeFirma.exists()) {
+        archivoDeFirma.withInputStream { credenciales.load(it) }
+    }
+
     signingConfigs {
-        release {
-            storeFile = file('../nexcode-marketplace.jks')
-            storePassword = 'Nexcode2026'
-            keyAlias = 'nexcode'
-            keyPassword = 'Nexcode2026'
+        if (archivoDeFirma.exists()) {
+            release {
+                storeFile = rootProject.file(credenciales.getProperty('storeFile'))
+                storePassword = credenciales.getProperty('storePassword')
+                keyAlias = credenciales.getProperty('keyAlias')
+                keyPassword = credenciales.getProperty('keyPassword')
+            }
         }
     }
 
     buildTypes {
         release {
             minifyEnabled = false
-            signingConfig = signingConfigs.release
+            if (archivoDeFirma.exists()) {
+                signingConfig = signingConfigs.release
+            }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
                     'proguard-rules.pro'
         }
@@ -90,6 +101,8 @@ dependencies {
     implementation libs.firebase.auth
     implementation libs.firebase.firestore
     implementation libs.firebase.storage
+    // Agente de IA: Gemini vía Firebase AI Logic (la clave no viaja en el APK)
+    implementation libs.firebase.ai
     implementation libs.kotlinx.coroutines.android
     implementation libs.kotlinx.coroutines.play.services
 

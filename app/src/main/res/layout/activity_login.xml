@@ -165,18 +165,6 @@
                         android:maxLines="1" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/interruptorVendedor"
-                    style="@style/Interruptor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:paddingVertical="6dp"
-                    android:text="@string/soy_vendedor"
-                    android:textColor="@color/nex_texto_medio"
-                    android:textSize="14sp"
-                    android:visibility="gone" />
-
                 <Button
                     android:id="@+id/botonPrincipal"
                     style="@style/Boton.Principal"
