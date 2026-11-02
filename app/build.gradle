@@ -4,6 +4,15 @@ plugins {
     alias(libs.plugins.googleService)
 }
 
+// Servidor leandro-voz (Cloudflare Worker) que abre la llamada con el agente de
+// Retell. Vive en local.properties, que no se sube al repositorio.
+def propiedadesLocales = new Properties()
+def archivoLocal = rootProject.file('local.properties')
+if (archivoLocal.exists()) {
+    archivoLocal.withInputStream { propiedadesLocales.load(it) }
+}
+def servidorLeandro = propiedadesLocales.getProperty('leandro.servidorUrl', '').trim()
+
 android {
     namespace = 'com.nexcode.marketplace'
     compileSdk = 35
@@ -17,6 +26,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        // Sin ella, el boton "Hablar con Leandro" avisa que falta configurarlo.
+        buildConfigField "String", "LEANDRO_URL", "\"${servidorLeandro}\""
     }
 
     // Firma de la version de publicacion. El almacen de claves acompana al
@@ -56,6 +68,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
     packaging {
@@ -92,6 +105,10 @@ dependencies {
     implementation libs.firebase.storage
     implementation libs.kotlinx.coroutines.android
     implementation libs.kotlinx.coroutines.play.services
+
+    // --- Llamada de voz con el agente Leandro (Retell AI) ---
+    implementation libs.stream.webrtc
+    implementation libs.okhttp
 
     // --- Pruebas ---
     testImplementation libs.junit

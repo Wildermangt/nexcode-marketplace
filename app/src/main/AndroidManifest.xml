@@ -10,6 +10,11 @@
          exige permiso de lectura. -->
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!-- Llamada de voz con el agente Leandro (WebRTC). El microfono se pide al
+         tocar el boton, no al abrir la app. -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
     <uses-feature
         android:name="android.hardware.camera.any"
         android:required="false" />

@@ -77,6 +77,10 @@
     <string name="escribe_mensaje">Escribe un mensaje</string>
     <string name="sin_chats">Todavia no hay conversaciones</string>
     <string name="chat_vacio">Escribe tu primer mensaje al vendedor</string>
+    <string name="leandro_hablar">Hablar con Leandro</string>
+    <string name="leandro_conectando">Conectando con Leandro…</string>
+    <string name="leandro_colgar">Colgar</string>
+    <string name="leandro_sin_microfono">Para hablar con Leandro necesitas permitir el microfono.</string>
 
     <!-- Perfil -->
     <string name="mis_pedidos">Mis pedidos</string>
